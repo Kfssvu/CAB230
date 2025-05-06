@@ -12,7 +12,7 @@ function App() {
     </div>
      <div id="Welcome-message">
       <h1>Dyllon Tan's Fabulous Movie Searching Website</h1>
-      <img src="./hero.jpg" alt='Hero image' ></img>
+      <img src="/hero.jpg" alt='Hero image' ></img>
       <p>I hope you find the movie you're after</p>
      </div>
      <div id="footer">

@@ -7,6 +7,10 @@ import { APIcall } from './Auth';
 
 export default function NavBar() { 
     const navigate = useNavigate()
+
+    /**
+     * Function to handle logout
+     */
     const handleLogout = async () => {
         try{
             const refreshToken = localStorage.getItem("Rtoken");

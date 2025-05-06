@@ -3,6 +3,10 @@ import "./Auth.css"
 import NavBar from "./navbar";
 import { useNavigate } from "react-router-dom";
 
+/**
+ * Function to refresh the JWT token
+ * @returns null
+ */
 export const refreshToken = async () => {
     const refreshToken = localStorage.getItem("Rtoken")
     const headers = {
@@ -29,6 +33,15 @@ export const refreshToken = async () => {
     }
 }
 
+/**
+ * Function to make API calls with automatic token refresh
+ * @param {*} url destination URL
+ * @param {*} method api method
+ * @param {*} body request body
+ * @param {*} customHeaders additional headers
+ * @returns response data in json format
+ * @throws Error if the API call fails
+ */
 export const APIcall = async (url, method = "GET", body = null, customHeaders = {}) => {
     try {
         const headers = {
@@ -56,20 +69,18 @@ export const APIcall = async (url, method = "GET", body = null, customHeaders = 
                 console.log("Token expired, refreshing...done");
                 return JSONresponse;
             } else {
-                alert("PLEASE LOG IN!!!!!!!!")
                 throw new Error(`Unauthorized: ${errorData.message}`);
             }
         }
 
-        else if (response.status !=200) {
-            error = await response.json();
+        else if (response.status !==200 && response.status !== 201) {
+            const error = await response.json();
             throw new Error(`API call failed with status ${response.status}: ${error.message}`);
         }
-
         return await response.json();
     }
     catch (error) {
-        throw error; 
+        throw new Error(`API call failed: ${error.message}`); 
     }
 }
 
@@ -82,10 +93,12 @@ export default function Auth() {
     const [submitted, setSubmitted] = useState(false); 
     const navigate = useNavigate()
 
+    // Function to handle login or registration
     const handleLogin = async (e) => {
         e.preventDefault();
         setSubmitted(false);
         
+        // Ensure passwords match if registering
         if (state === "Register" && password !== confirmpassword) {
             setSubmitted(true)
             alert("Passwords do not match");
@@ -96,15 +109,17 @@ export default function Auth() {
         try {
             const data = await APIcall(`http://4.237.58.241:3000/user/${state.toLowerCase()}`,"POST", {email, password})
 
+            // Logic to handle successful login or registration
             if (state === "Login") {
                 localStorage.setItem("Btoken", data.bearerToken.token); 
                 localStorage.setItem("Rtoken", data.refreshToken.token)
-                console.log(data)
                 alert("Login successful!");
                 navigate("/")
             } else {
                 alert("Registration successful! Please log in.");
                 setState("Login");
+                setEmail("");
+                setPassword("");    
                 setSubmitted(false)
                 navigate("/auth")
             }
@@ -114,9 +129,14 @@ export default function Auth() {
                 alert("User already exists");
                 return;
             }
-            if (error.message.includes("Incorrect email or password")){
+            else if (error.message.includes("Incorrect email or password")){
                 setSubmitted(true)
                 alert("Incorrect email or password");
+                return;
+            }
+            else{
+                setSubmitted(true)
+                alert("Error: " + error.message);
                 return;
             }
         }
@@ -178,7 +198,13 @@ export default function Auth() {
                             No account?{" "}
                             <span
                                 style={{ color: "blue", cursor: "pointer" }}
-                                onClick={() => setState("Register")}
+                                onClick={() => {
+                                    setState("Register");
+                                    setEmail("");
+                                    setPassword("");
+                                    setSubmitted(false);
+                                    setConfirmPassword("");
+                                }}
                             >
                                 Register here
                             </span>
@@ -188,7 +214,8 @@ export default function Auth() {
                             Already have an account?{" "}
                             <span
                                 style={{ color: "blue", cursor: "pointer" }}
-                                onClick={() => setState("Login")}
+                                onClick={() => {setEmail("");
+                                    setPassword("");setSubmitted(false);setState("Login")}}
                             >
                                 Login here
                             </span>

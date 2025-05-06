@@ -25,7 +25,9 @@ export default function Movies() {
         { field: "Rated", headerName: "Rated", flex:1}
     ];
 
-
+    /**
+     * Function to handle infinite scrolling
+     */
     const dataSource = useMemo(() => ({
         getRows: (params) => {
             const {  endRow } = params;
@@ -68,6 +70,9 @@ export default function Movies() {
         },
     }), [searchParams]);
 
+    /**
+     * Function to handle search button click
+     */
     const handleSearch = () => {
         setSearchParams({ title, year });
         setRowModelType("infinite");

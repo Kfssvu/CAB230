@@ -41,6 +41,7 @@ export default function People() {
                     navigate("/")
                 }
                 else{
+                alert("PLEASE LOG IN!!!!!!!!")
                 setError(error.message);
                 setLoading(false);
                 alert("Error: Failed to fetch person details");
@@ -137,7 +138,7 @@ export default function People() {
                 </div>
             </div>
             <button
-                    style={{backgroundColor:"blue", position:"relative",left:"0", marginBottom:"3%"}}
+                    style={{backgroundColor:"blue", position:"relative",left:"0", marginBottom:"3%",borderRadius: "20px"}}
                     onClick={() => navigate(-1)} 
                 >
                     Back
