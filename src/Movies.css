@@ -1,0 +1,33 @@
+#filterbar{
+    margin-bottom: 20px;
+    padding: 10px;
+    background-color: black;
+    border-radius: 10px;
+    width: 70vw;
+    margin-top: 10%;
+}
+
+#searchbutton {
+    border-radius: 15px;
+    background-color: blue;
+    left: 100%;
+    position: sticky;
+}
+
+input{
+    width: 70%;
+    margin-left: 1vw;
+}
+
+label{
+    font-weight: bolder;
+    color: white;
+}
+
+#moviestable{
+    --ag-header-background-color: #2b3240; 
+    --ag-foreground-color: white;
+    --ag-background-color: #1f2836;
+    --ag-font-size: 15px; 
+    --ag-wrapper-border-radius: 25px
+}

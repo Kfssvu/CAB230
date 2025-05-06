@@ -1,0 +1,81 @@
+#loginform{
+    text-align: left;
+    justify-content: center;
+    border-radius: 20px;
+    height:80vh;
+    width:30vw;
+    padding:10%;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(#ffffff,#000000);
+    animation: FormBackgroundGradient 10s ease infinite;
+    background-size: 200% 200%;
+    margin-top: 15%;
+}
+@keyframes FormBackgroundGradient {
+    0% {background-position: 0% 0%}
+    50% {background-position: 150% 100%}
+    100% {background-position: 0% 0%}
+  }
+
+#loginform h1, #loginform p{
+    animation: textBackgroundAnimation 10s ease infinite;
+}
+@keyframes textBackgroundAnimation{
+    0% {
+        color: black;
+    }
+    50% {
+        color: white;
+    }
+    100% {
+        color: black
+    }    
+}
+
+#loginform label{
+    color: black;
+}
+
+
+.userprompt{
+    margin-bottom: 10px;
+    justify-content: left;
+    text-align: left;
+}
+
+.userprompt input{
+    width: 100%;
+    border-radius: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 0;
+    margin-right: 100%;
+}
+
+.userprompt .invalid{
+    color: red;
+    opacity: 1; 
+    animation: shake 0.5s ease;
+}
+@keyframes shake {
+    0% { transform: translateX(0); }
+    25% { transform: translateX(-5px); }
+    50% { transform: translateX(5px); }
+    75% { transform: translateX(-5px); }
+    100% { transform: translateX(0); }
+}
+
+
+#loginbutton {
+    margin-top: 10%;
+    margin-left:75%;
+    margin-bottom: 15%;
+    height:20%;
+    width:25%;
+    padding:1%;
+    border: 1px solid #ccc;
+    background-color: rgb(5, 5, 243);
+    border-radius: 20px;
+
+}

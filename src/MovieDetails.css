@@ -1,0 +1,34 @@
+.details{
+    background-color: #E2D1C3;
+    border-radius: 10%;
+    padding: 5%;
+    margin-top: 15%;
+    width: 60vw;
+    height: 100%;
+    display:flex;
+    flex-direction: column;
+}
+#overview{
+    color:black;
+    justify-content: center;
+    text-align: center;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+#ratings{
+    color:black;
+}
+
+
+#principals{
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    --ag-header-background-color: rgb(244, 192, 78); 
+    --ag-header-foreground-color: rgb(16, 6, 6);
+    --ag-background-color: rgb(249, 205, 135) ;
+    --ag-foreground-color: rgb(2, 0, 0);
+    --ag-font-size: 20px 
+}

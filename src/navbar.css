@@ -1,0 +1,39 @@
+#root {
+    max-width: 1280px;
+    /*margin: 0 auto;*/
+    text-align: left;
+}
+
+
+.navbar {
+    display: inline-block;
+    width: 100%;
+    justify-content:left ;
+    background-color: #1a1a1a;
+    position: fixed;
+    top: 0;
+    align-items: center;
+    z-index: 1000;
+  }
+  
+  .navbar-brand {
+    color: #ffffff;
+    display: inline-block;
+    padding: 0.5em;
+    margin-left: 1em;
+    margin-right: 1em;
+    transition: border-bottom 0.2s ease, font-size 0.2s ease-out;
+    position: relative;
+    cursor: pointer;
+  }
+  
+  .navbar-brand:hover {
+    color: #535bf2;
+    border-bottom: 0.5vh solid #535bf2;
+    font-size: 1.5em;
+  }
+  
+  #Auth {
+    left: 100%;
+    position: sticky;
+  } 

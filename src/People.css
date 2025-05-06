@@ -1,0 +1,36 @@
+.person-details{
+    background-color: #E2D1C3;
+    border-radius: 10%;
+    padding: 15%;
+    margin-top: 15%;
+    width: 60vw;
+    height: 100%;
+    color:black;
+    margin-bottom: 5%;
+    display:flex;
+    flex-direction: column;
+}
+
+
+#person-roles{
+    height: 300px;
+    width: 100%;
+    margin-top: 20px;
+    padding-bottom: 20px;
+    --ag-header-background-color: rgb(244, 192, 78); 
+    --ag-header-foreground-color: rgb(16, 6, 6);
+    --ag-background-color: rgb(249, 205, 135) ;
+    --ag-foreground-color: rgb(2, 0, 0);
+    --ag-font-size: 15px ;
+}
+
+#ratingchart{
+    background-color: rgb(218, 206, 231);
+    color: rgb(10, 10, 10);
+    border-radius: 5%;
+    padding: 10%;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.53);
+}
+
+
+
