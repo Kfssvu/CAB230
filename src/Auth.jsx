@@ -24,8 +24,8 @@ export const refreshToken = async () => {
         localStorage.setItem("Rtoken", data.refreshToken.token)
         return
     }
-    catch(err){
-        throw new Error("Failed to refresh token: " + err.message);
+    catch(error){
+        throw new Error("Failed to refresh token: " + error.message);
     }
 }
 
@@ -68,8 +68,8 @@ export const APIcall = async (url, method = "GET", body = null, customHeaders = 
 
         return await response.json();
     }
-    catch (err) {
-        throw err; 
+    catch (error) {
+        throw error; 
     }
 }
 
@@ -108,13 +108,13 @@ export default function Auth() {
                 setSubmitted(false)
                 navigate("/auth")
             }
-        } catch (err) {
-            if (err.message.includes("User already exists")){
+        } catch (error) {
+            if (error.message.includes("User already exists")){
                 setSubmitted(true)
                 alert("User already exists");
                 return;
             }
-            if (err.message.includes("Incorrect email or password")){
+            if (error.message.includes("Incorrect email or password")){
                 setSubmitted(true)
                 alert("Incorrect email or password");
                 return;

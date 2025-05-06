@@ -21,8 +21,8 @@ export default function MovieDetails() {
                 setMovie(data);
                 setLoading(false);
             })
-            .catch((err) => {
-                setError(err.message);
+            .catch((error) => {
+                setError(error.message);
                 setLoading(false);
                 alert("Error: Failed to fetch movie details");
             });

@@ -16,7 +16,7 @@ export default function NavBar() {
             alert("You have been logged out.");
             navigate("/")
         }
-        catch (err){
+        catch (error){
             console.error(error.message);
             alert("Error: Failed to log out");
         }

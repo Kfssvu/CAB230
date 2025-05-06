@@ -36,12 +36,12 @@ export default function People() {
                 setLoading(false);
                 console.log(data)
             })
-            .catch((err) => {
-                if (err.message.includes("JWT token has expired")) {
+            .catch((error) => {
+                if (error.message.includes("JWT token has expired")) {
                     navigate("/")
                 }
                 else{
-                setError(err.message);
+                setError(error.message);
                 setLoading(false);
                 alert("Error: Failed to fetch person details");
                 }
